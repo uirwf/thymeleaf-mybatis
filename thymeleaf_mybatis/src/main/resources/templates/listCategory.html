@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>编程语言展示列表</title>
+</head>
+<body>
+    <div style="width:500px;margin:20px auto;text-align: center">
+
+        <form action="/thymeleaf2/category/addCategory" method="post">
+            name:<input name="name" placeholder="请输入语言名称"><br>
+            <button type="submit">添加</button>
+        </form>
+        <br>
+
+        <table border="1px"align="center">
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>编辑</th>
+                <th>删除</th>
+            </tr>
+            <tr th:each="category:${page.list}">
+                <td th:text="${category.id}"></td>
+                <td th:text="${category.name}"></td>
+                <td><a th:href="@{/category/editCategory(id=${category.id})}">编辑</a> </td>
+                <td><a th:href="@{/category/deleteCategory(id=${category.id})}">删除</a> </td>
+            </tr>
+        </table>
+        <br>
+        <div>
+            <a th:href="@{/category/listCategory(start=${page.pageNum -1})}">上一页</a>
+            <a th:href="@{/category/listCategory(start=0)}">首页</a>
+            <a th:href="@{/category/listCategory(start=${page.pageNum + 1})}">下一页</a>
+            <a th:href="@{/category/listCategory(start=${page.pages})}">末页</a>
+        </div>
+    </div>
+
+</body>
+</html>

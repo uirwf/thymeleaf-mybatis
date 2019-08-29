@@ -1,0 +1,22 @@
+###tomcat端口和默认访问路径配置
+server:
+  port: 80
+  servlet:
+    context-path: /thymeleaf2
+
+###thymeleaf和mysql配置
+spring:
+  thymeleaf:
+    mode: HTML5
+    encoding: utf-8
+    cache: false
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/how2java?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: root
+
+###mybatis别名包扫描
+mybatis:
+  type-aliases-package: com.example.thymeleaf_mybatis.domain
+

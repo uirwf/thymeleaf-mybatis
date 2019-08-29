@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>编程语言修改页面</title>
+</head>
+<body>
+
+    <div style="margin:0px auto; width:500px">
+        <form action="/thymeleaf2/category/updateCategory" method="post">
+            <input name="id" th:value="${category.id}" readonly="readonly"><br>
+            <input name="name" th:value="${category.name}"><br>
+            <button type="submit">修改</button>
+        </form>
+    </div>
+
+</body>
+</html>
